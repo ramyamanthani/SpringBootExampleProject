@@ -18,7 +18,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 						email = "ramya@gmail.com"
 						)
 				)
-		)
+		)//Related to swagger implementation
 public class NewProjectApplication {
 
 	public static void main(String[] args) {
