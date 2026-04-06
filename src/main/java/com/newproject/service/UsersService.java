@@ -1,12 +1,16 @@
 package com.newproject.service;
 
+import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Function;
 
+import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.ListPagingAndSortingRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 import com.newproject.entity.Users;
@@ -43,7 +47,7 @@ public class UsersService {
 			throw new AlreadyExistsException("userName already Exists");
 		}
 		*/
-		if(usersRepo.findByName(u.getUsername()).isPresent()) {
+		if(usersRepo.findByUserName(u.getUsername())!= null) {
 			throw new AlreadyExistsException("userName already Exists");
 		}
 		users.setUserId(UUID.randomUUID().toString());
@@ -110,4 +114,5 @@ public class UsersService {
 		System.out.println("userlist " + userList);
 		return userList;
 	}
+	
 }

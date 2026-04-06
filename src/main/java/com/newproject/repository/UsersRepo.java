@@ -18,9 +18,9 @@ public interface UsersRepo extends JpaRepository<Users, String>{
     Users findByUserId(@Param("userId") String userId);
 	
 	@Query(value = "select u.user_name from Users u where u.user_name=:userName", nativeQuery = true)
-	String findByUserName(@Param("userName") String userName);
+	//String findByUserName(@Param("userName") String userName);
 	
-	Optional<Users> findByName(@Param("userName") String userName);
+	String findByUserName(@Param("userName") String userName);
 	
 	//@Query(value = "select u.user_id,u.user_name, u.date,u.email,u.date_of_birth,u.first_name,u.last_name,u.phone_number,u.password from Users u where u.date between :startDate and :endDate", nativeQuery = true)
 	@Query("select u from Users u where u.date between :startDate and :endDate")
